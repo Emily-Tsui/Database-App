@@ -1,5 +1,8 @@
-# GreenWorksFlaskApp
-All code formatting is based on the CS 340 starter code (CITATION 1), but all of the content is original unless otherwise stated.
+# Green Works Landscaping FlaskApp
+All code formatting is based on the OSU clas Introduction to databases CS 340 starter code (CITATION 1), but all of the content is original unless otherwise stated.
+
+My partner and I created Python Flask application to help the administrator of the database keep track of their customers and invoicing.
+Below are our citations.
 
 ## CITATIONS
 1. Jinja templating, extension and page navigation<br>
