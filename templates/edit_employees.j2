@@ -1,0 +1,56 @@
+<!--
+Code Citation
+2.
+Flask starter code and formatting is copied and adapted from the OSU CS340 GitHub flask_starter_app
+Date: 2/29/2024
+Copied and adapted from:
+Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+
+All content is original unless otherwise stated.
+-->
+<!-- BEGIN JINJA FORMATTING ADAPTATION CITATION 2 -->
+
+{% extends "main.j2" %}
+{% block content %}
+
+<main>
+    <article>
+        <form action="/employees/" method="post">
+            <fieldset class="edit_pages">
+                <legend>Update Employee</legend>
+                    <p>* Fields are required.</p>
+                    <input type="hidden" value="{{ form_data[0]['employee_id'] }}" name="employee_ID">
+                    <input
+                        type="text"
+                        placeholder="First Name"
+                        value = "{{ form_data[0]['employee_fname'] }}"
+                        required
+                        name="first_name"/>
+                    
+                    <input
+                        type="text"
+                        placeholder="Last Name"
+                        value = "{{ form_data[0]['employee_lname'] }}"
+                        required
+                        name="last_name"/>
+
+                    <input
+                        type="text"
+                        placeholder="000-000-0000"
+                        value = "{{ form_data[0]['phone_number'] }}"
+                        required
+                        name="phone"/>
+
+                    <br/>
+                    <input type="submit" value="Update" name="update" class="btn">
+
+                    <a href='/employees/'>  
+                    <input type="button" value="Cancel" name="cancel_edit" class="btn">  
+            </fieldset>
+        </form>
+    </article>
+</main>
+
+{% endblock %}
+
+<!-- END JINJA FORMATTING ADAPTATION CITATION 2 -->

@@ -1,0 +1,116 @@
+<!--
+Code Citation
+2.
+Flask starter code and formatting is copied and adapted from the OSU CS340 GitHub flask_starter_app
+Date: 2/29/2024
+Copied and adapted from:
+Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+
+All content is original unless otherwise stated.
+-->
+<!-- BEGIN JINJA FORMATTING ADAPTATION CITATION 2 -->
+{% extends "main.j2" %}
+{% block content %}
+    <main>
+        <h2>Business Overview</h2>
+        <table class="overview-table">
+            {% if summary_data %}
+                <thead>
+                    <tr>
+                        {% for key in summary_data[0].keys() %}
+                            <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                        {% endfor %} 
+                    </tr>
+                </thead>
+				<tbody>
+                    {% for item in summary_data %}
+					    <tr>
+                            {% for key in item.keys() %}
+						        <td> {{item[key]}} </td> 
+                            {% endfor %}
+					    </tr> 
+                    {% endfor %} 
+                </tbody>
+            {% endif %} 
+        </table>
+<!-- END JINJA FORMATTING ADAPTATION CITATION 2 -->
+
+        <div class="reload-btn">
+          <form action="/" method="post">
+            <input type="submit" value="Reload Database" name="reload_db" class="btn">  
+          </form>
+        </div>
+
+        <h3>Project Description</h3>
+            <p class="description">
+            GREENWORKS LANDSCAPING is a privately owned business that specializes in a variety of landscaping services within their community.
+            With only one location (currently) in North America they have seen a huge spike in business, completing over $200,000 worth of services 
+            for their customers last year! The goal of this project is to help GREENWORKS LANDSCAPING track their equipment, employees, customers, 
+            and most importantly their sales.
+            </p>
+            <p class="description">
+                GREENWORKS LANDSCAPING served over 350 customers within their community last year, and are looking to 
+                expand their service area by 50 miles. They are also incorporating several new services for customers, for a total projected increase in 
+                sales of 20% by the end of this year. The owners of this business would like to store information to ultimately break down their profits 
+                by month (or set of months), customer, and service. They hope to use this database to facilitate data-informed decision making as their 
+                business continues to grow.
+            </p>
+        
+        <article class="gallery">
+            <h3>Entity-Relation (ER) Diagram</h3>
+                <figure>
+                <img src="static/ERD.png" alt="A picture with a diagram and lines connecting to their relationships. This is also
+                    called an Entity-Relationship Diagram.">
+                <figcaption>Figure 1. Entity Relationship Diagram for GREENWORKS LANDSCAPING.</figcaption>
+                </figure>
+            <h3>Database Schema</h3>
+                <figure>
+                    <img src="static/Schema.png" alt="A picture with a diagram and lines connecting to their relationships. There are 4 entities
+                        and an intersection table connected to each other with relationship lines." />
+                    <figcaption>Figure 2. Schema for GREENWORKS LANDSCAPING.</figcaption>
+                </figure>
+        </article>
+
+        <h3>Website Functionality</h3>
+        <article class="list">
+            <dl>
+            <dt><strong>Customers</strong></dt>
+                <dd>
+                    On the Customers page supports full CRUD operations 
+                    for the Customers entity. Select the appropriate tab and 
+                    follow the form instructions to complete the desired operation. 
+                </dd>
+            <br/>
+            <dt><strong>Employees</strong></dt>
+                <dd>
+                    The Employees page supports full CRUD operations for the Employees 
+                    entity. Select the appropriate tab and follow the form instructions 
+                    to complete the desired operation. 
+                </dd>
+            <br/>
+            <dt><strong>Services</strong></dt>
+                <dd>
+                    The Services page supports full CRUD operations for the Services entity. 
+                    Select the appropriate tab and follow the form instructions to complete 
+                    the desired operation. 
+                </dd>
+            <br/>
+            <dt><strong>Invoices</strong></dt>
+                <dd>
+                    The Invoices page supports full CRUD operations for the Invoices and Services 
+                    Invoices entities. Select the appropriate tab and follow the form instructions 
+                    to complete the desired operation. Changes made on the Invoices page are reflected 
+                    on the Invoice Details page if applicable. 
+                </dd>
+            <br/>
+            <dt><strong>Invoice Details</strong></dt>
+                <dd>
+                    This page displays the intersection table, Services_Invoices. Full CRUD operations 
+                    are available to records in this table, but can only be accessed via the Invoices page. 
+                    Additions/Updates/Deletions made to invoice line items from the Invoices page 
+                    are reflected here. 
+                </dd>
+            </dl>
+        </article>
+    </main>
+{% endblock %}

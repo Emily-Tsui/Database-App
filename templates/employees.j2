@@ -1,0 +1,136 @@
+<!--
+Code Citation
+2.
+Flask starter code and formatting is copied and adapted from the OSU CS340 GitHub flask_starter_app
+Date: 2/29/2024
+Copied and adapted from:
+Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+
+3.
+Tab DIV HTML and CSS copied & adapted from Stack Overflow
+Date: 2/15/2024
+Copied and adapted from:
+Source URL:https://stackoverflow.com/questions/6906724/is-it-possible-to-have-tabs-without-javascript
+
+All content is original unless otherwise stated.
+-->
+<!-- BEGIN JINJA FORMATTING ADAPTATION CITATION 2 -->
+
+{% extends "main.j2" %}
+{% block content %}
+
+<main>
+    <h2 class="table_title">Employee Information</h2>
+
+<!-- BEGIN TAB FORMATTING ADAPTATION CITATION 3 -->        
+        <div class="tabs">
+            <div class="tab">
+                <input type="radio" id="tab-1" name="tab-group-1" checked>
+                <label for="tab-1" id="tab_name">Add</label>
+                <div class="content">
+                    <article>
+                        <form action="/employees/" method ="post">
+                            <fieldset>
+                                <legend>Add Employee</legend>
+                                <p>
+                                * Fields are required.
+                                </p>
+                                <input
+                                    type="text"
+                                    placeholder="* First Name"
+                                    name="first_name"
+                                    required/>
+                                <input
+                                    type="text"
+                                    placeholder="* Last Name"
+                                    name="last_name"
+                                    required/>
+                                <input
+                                    type="tel"
+                                    placeholder="* 000-000-0000"
+                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                    name="phone"
+                                    required
+                                    title="000-000-0000"/>
+                                <br/>
+                                <input type="submit" value="Add" name="add_employee" class="btn">
+                            </fieldset>
+                        </form>
+                    </article>
+                </div> 
+            </div>
+            <div class="tab">
+                <input type="radio" id="tab-2" name="tab-group-1">
+                <label for="tab-2" id="tab_name">Update</label>
+                <div class="content">
+                    <article>
+                        <form action="/employees/" method="post">
+                            <fieldset>
+                                <legend>Update Employee</legend>
+                                <label>Select Employee</label>
+                                    <select name="employee_ID">
+                                        {% if dropdown_data %}
+                                            {% for item in dropdown_data %}
+                                                <option value="{{ item['employee_id'] }}">{{ item['Name'] }}</option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                <br/>
+                                <input type="submit" value="Update" name="edit_employee" class="btn">
+                            </fieldset>
+                        </form>
+                    </article>
+                </div> 
+            </div>
+
+            <div class="tab">
+                <input type="radio" id="tab-3" name="tab-group-1">
+                <label for="tab-3" id="tab_name">Delete</label>
+                <div class="content">
+                    <article>
+                        <form action="/employees/", method="post">
+                            <fieldset>
+                                <legend>Delete Employee</legend>
+                                <label>Select an Employee</label>
+                                    <select name="employee_ID">
+                                        {% if dropdown_data %}
+                                            {% for item in dropdown_data %}
+                                                <option value={{ item['employee_id'] }}>{{ item['Name'] }}</option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                <br/>
+                                <input type="submit" value="Delete" name="delete_employee" class="btn" onclick="return confirm('Are you sure you want to delete the selected employee?')" >
+                            </fieldset>
+                        </form>
+                    </article>
+                </div>
+            </div>
+        </div>
+<!-- END TAB FORMATTING ADAPTATION CITATION 3 -->
+
+    <table>
+        {% if employees %}
+            <thead>
+                <tr>
+                    {% for key in employees[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                    {% endfor %} 
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in employees %}
+                    <tr>
+                        {% for key in item.keys() %}
+                            <td> {{item[key]}} </td> 
+                        {% endfor %}
+                    </tr> 
+                {% endfor %}
+            </tbody>
+        {% endif %} 
+    </table>
+</main>
+
+{% endblock %}
+
+<!-- END JINJA FORMATTING ADAPTATION CITATION 2 -->

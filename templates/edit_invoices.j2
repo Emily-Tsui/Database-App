@@ -1,0 +1,67 @@
+<!--
+Code Citation
+2.
+Flask starter code and formatting is copied and adapted from the OSU CS340 GitHub flask_starter_app
+Date: 2/29/2024
+Copied and adapted from:
+Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+
+All content is original unless otherwise stated.
+-->
+<!-- BEGIN JINJA FORMATTING ADAPTATION CITATION 2 -->
+{% extends "main.j2" %}
+{% block content %}
+
+<main>
+    <article>
+        <form action="/invoices/", method="post">
+            <fieldset class="edit_pages">
+                <legend>Update Invoice</legend>
+                <input type="hidden" value="{{ invoice_data[0]['invoice_id'] }}" name="invoice_ID">
+                <label>Customer</label>
+                    <select name="customer_ID">
+                        {% if customer_dropdown_data %}
+                            {% for item in customer_dropdown_data %}
+                                <option value="{{ item['customer_id'] }}" {{ 'selected' if invoice_data[0]['customer_id']==item['customer_id'] }}>{{ item['Name'] }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                <label>Employee</label>
+                    <select name="employee_ID">
+                        <option value="None" {{ 'selected' if invoice_data[0]['employee_id']=='None' }}>N/A</option>
+                        {% if employee_dropdown_data %}
+                            {% for item in employee_dropdown_data %}
+                                <option value="{{ item['employee_id'] }}" {{ 'selected' if invoice_data[0]['employee_id']==item['employee_id'] }}>{{ item['Name'] }}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                <label>Date</label>
+                <input required name="date_created" value = "{{ invoice_data[0]['date_created'] }}" type="date"/>
+                <br/>
+                <p>
+                Enter number of hours completed for each service.
+                </p>
+                {% if line_items %}
+                    {% for item in line_items %}
+                        <label>{{ item }}:</label>
+                        <input
+                        type="number"
+                        min="0"
+                        value="{{ line_items[item] }}"
+                        name="{{ item }}"
+                        value=0/>
+                    {% endfor %}
+                {% endif %}
+                <br/>                
+                <input type="submit" value="Update" name="update" class="btn">
+                <a href='/invoices/'>  
+                <input type="button" value="Cancel" name="cancel_edit_invoice" class="btn">  
+                </a>          
+            </fieldset>
+        </form>
+    </article>
+</main>
+
+{% endblock %}
+
+<!-- END JINJA FORMATTING ADAPTATION CITATION 2 -->

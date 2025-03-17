@@ -1,0 +1,92 @@
+<!--
+Code Citation
+2.
+Flask starter code and formatting is copied and adapted from the OSU CS340 GitHub flask_starter_app
+Date: 2/29/2024
+Copied and adapted from:
+Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+
+All content is original unless otherwise stated.
+-->
+<!-- BEGIN JINJA FORMATTING ADAPTATION CITATION 2 -->
+{% extends "main.j2" %}
+{% block content %}
+
+<main>
+    <article>
+        <form action="/customers/" method="post">
+            <fieldset class="edit_pages">
+                <legend>Update Customer</legend>
+                    <p>
+                    * Fields are required.
+                    </p>
+                    <input type="hidden" value="{{ form_data[0]['customer_id'] }}" name="cust_ID">
+                    <input
+                        type="text"
+                        placeholder="* First Name"
+                        value = "{{ form_data[0]['first_name'] }}"
+                        name="first_name"
+                        required
+                        id="fname" />
+                    <input
+                        type="text"
+                        placeholder="* Last Name"
+                        value = "{{ form_data[0]['last_name'] }}"
+                        name="last_name"
+                        required
+                        id="lname" />
+                    <input
+                        type="text"
+                        placeholder="* Address"
+                        value = "{{ form_data[0]['address'] }}"
+                        name="address"
+                        required
+                        id="address" />
+                    <input
+                        type="text"
+                        placeholder="* City"
+                        value = "{{ form_data[0]['city'] }}"
+                        name="city"
+                        required
+                        id="city" />
+                    <input
+                        type="text"
+                        placeholder="* State"
+                        value = "{{ form_data[0]['state'] }}"
+                        name="state"
+                        required
+                        id="state" />
+                    <input
+                        type="text"
+                        placeholder="* Zipcode"
+                        value = "{{ form_data[0]['zipcode'] }}"
+                        name="zipcode"
+                        required
+                        id="zipcode" />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value = "{{ form_data[0]['email'] }}"
+                        name="email"
+                        id="email" />
+                    <input
+                        type="tel"
+                        placeholder="* Phone 000-000-0000"
+                        value = "{{ form_data[0]['phone'] }}"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                        name="phone"
+                        required
+                        id="phone" />
+                    <br/>
+                    <input type="submit" value="Update" name="update" class="btn">
+                    <a href='/customers/'>  
+                    <input type="button" value="Cancel" name="cancel_edit" class="btn">  
+                    </a>
+                </label>
+            </fieldset>
+        </form>
+    </article>
+</main>
+
+{% endblock %}
+<!-- END JINJA FORMATTING ADAPTATION CITATION 2 -->

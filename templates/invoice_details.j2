@@ -1,0 +1,41 @@
+<!--
+Code Citation
+2.
+Flask starter code and formatting is copied and adapted from the OSU CS340 GitHub flask_starter_app
+Date: 2/29/2024
+Copied and adapted from:
+Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+
+All content is original unless otherwise stated.
+-->
+<!-- BEGIN JINJA FORMATTING ADAPTATION CITATION 2 -->
+{% extends "main.j2" %}
+{% block content %}
+
+<main>
+    <h2 class="table_title">Invoice Line Item Details</h2>
+    <table>
+        {% if invoicedetails_data %}
+        <thead>
+            <tr>
+                {% for key in invoicedetails_data[0].keys() %}
+                    <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                {% endfor %} 
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in invoicedetails_data %}
+                <tr>
+                    {% for key in item.keys() %}
+                        <td> {{item[key]}} </td> 
+                    {% endfor %}
+                </tr> 
+            {% endfor %} 
+        </tbody>
+        {% endif %} 
+    </table>
+</main>
+
+{% endblock %}
+
+<!-- END JINJA FORMATTING ADAPTATION CITATION 2 -->

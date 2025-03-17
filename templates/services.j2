@@ -1,0 +1,130 @@
+<!--
+Code Citation
+2.
+Flask starter code and formatting is copied and adapted from the OSU CS340 GitHub flask_starter_app
+Date: 2/29/2024
+Copied and adapted from:
+Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+
+3.
+Tab DIV HTML and CSS copied & adapted from Stack Overflow
+Date: 2/15/2024
+Copied and adapted from:
+Source URL:https://stackoverflow.com/questions/6906724/is-it-possible-to-have-tabs-without-javascript
+
+All content is original unless otherwise stated.
+-->
+<!-- BEGIN JINJA FORMATTING ADAPTATION CITATION 2 -->
+{% extends "main.j2" %}
+{% block content %}
+
+<main>
+    <h2 class="table_title">Services</h2>
+        <div class="tabs">
+<!-- BEGIN TAB FORMATTING ADAPTATION CITATION 3 -->
+            <div class="tab">
+                <input type="radio" id="tab-1" name="tab-group-1" checked>
+                <label for="tab-1" id="tab_name">Add</label>
+        
+                <div class="content">
+                    <article>
+                        <form action="/services/", method="post">
+                            <fieldset>
+                                <legend>Add Service</legend>
+                                <p>* Fields are required.</p>
+                                <input
+                                    type="text"
+                                    placeholder="* Service Name"
+                                    name="service_name"
+                                    required />
+                
+                                <input
+                                    type="number"
+                                    placeholder="* Cost Per Hour ($)"
+                                    min="0"
+                                    name="cost"
+                                    required />
+                                <br/>
+                                <input type="submit" value="Add" name="add_service" class="btn">
+                            </fieldset>
+                        </form>
+                    </article>
+                </div> 
+            </div>
+        
+            <div class="tab">
+                <input type="radio" id="tab-2" name="tab-group-1">
+                <label for="tab-2" id="tab_name">Update</label>
+        
+                <div class="content">
+                    <article>
+                        <form action="/services/", method="post">
+                            <fieldset>
+                                <legend>Update Service</legend>
+                                <label>Select a service</label>
+                                    <select name="service_ID">
+                                        {% if dropdown_data %}
+                                            {% for item in dropdown_data %}
+                                                <option value={{ item['service_id'] }}>{{ item['Name'] }}</option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                    <br/>
+                                <input type="submit" value="Update" name="edit_service" class="btn">                                 
+                            </fieldset>
+                        </form>
+                    </article>
+                </div> 
+            </div>
+        
+            <div class="tab">
+                <input type="radio" id="tab-3" name="tab-group-1">
+                <label for="tab-3" id="tab_name">Delete</label>
+                <div class="content">
+                    <article>
+                        <form action="/services/", method="post">
+                            <fieldset>
+                                <legend>Delete Service</legend>
+                                <label>Select a service</label>
+                                    <select name="service_ID">
+                                        {% if dropdown_data %}
+                                            {% for item in dropdown_data %}
+                                                <option value={{ item['service_id'] }}>{{ item['Name'] }}</option>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </select>
+                                <br/>
+                                <input type="submit" value="Delete" name="delete_service" class="btn" onclick="return confirm('Are you sure you want to delete the selected service?')" >                           
+                            </fieldset>
+                        </form>
+                    </article>
+                </div> 
+            </div>
+        </div>
+<!-- END TAB FORMATTING ADAPTATION CITATION 3 -->
+
+    <table>
+        {% if services %}
+            <thead>
+                <tr>
+                    {% for key in services[0].keys() %}
+                        <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+                    {% endfor %} 
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in services %}
+                    <tr>
+                        {% for key in item.keys() %}
+                            <td> {{item[key]}} </td> 
+                        {% endfor %}
+                    </tr> 
+                {% endfor %} 
+            </tbody>
+        {% endif %} 
+    </table>
+</main>
+
+{% endblock %}
+
+<!-- END JINJA FORMATTING ADAPTATION CITATION 2 -->

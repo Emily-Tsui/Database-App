@@ -1,0 +1,60 @@
+<!--
+Code Citation
+1.
+Jinja templating, extension and page navigation
+Date: 2/29/2024
+Source URL: https://pythonhow.com/python-tutorial/flask/Adding-a-navigation-menu-to-the-website/
+
+7.
+Favicon Evergreen Tree Emoji
+Date: 3/10/2024
+Source URL: https://favicon.io/emoji-favicons/evergreen-tree/
+
+All content is original unless otherwise stated.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, noarchive, nofollow"/>
+
+<!-- BEGIN ADAPTATION CITATION 7 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/android-chrome-512x512.png">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="manifest" href="/site.webmanifest">
+<!-- END ADAPTATION CITATION 7 -->
+
+    <link rel="stylesheet" href="../static/style.css">
+    <title>GREENWORKS</title>
+</head>
+<body>
+    <header>
+        <h1>GREENWORKS<img src="/static/android-chrome-192x192.png" alt="Evergreen Logo">LANDSCAPING</h1>
+    </header>
+
+<!-- BEGIN ADAPTATION CITATION 1 -->
+    <nav>
+        <a href={{ url_for('index') }}>Home</a>
+        <a href={{ url_for('customers') }}>Customers</a>
+        <a href={{ url_for('employees') }}>Employees</a>
+        <a href={{ url_for('services') }}>Services</a>
+        <a href={{ url_for('invoices') }}>Invoices</a>
+        <a href={{ url_for('invoicedetails') }}>Invoice Details</a>
+    </nav>
+    <div>
+    {% block content %}
+    {% endblock %}
+    </div>
+<!-- END ADAPTATION CITATION 1 -->
+
+    <footer>
+        <p>&copy 2024 Programming Pals Gonzales and Tsui</p>
+    </footer> 
+</body>
+</html>

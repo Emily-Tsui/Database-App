@@ -1,0 +1,47 @@
+<!--
+Code Citation
+2.
+Flask starter code and formatting is copied and adapted from the OSU CS340 GitHub flask_starter_app
+Date: 2/29/2024
+Copied and adapted from:
+Source URL: https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+
+All content is original unless otherwise stated.
+-->
+<!-- BEGIN JINJA FORMATTING ADAPTATION CITATION 2 -->
+{% extends "main.j2" %}
+{% block content %}
+
+<main>
+    <article>
+        <form action="/services/", method="post">
+            <fieldset class="edit_pages">
+                <legend>Update Service</legend>
+                <p>* Fields are required.</p>
+                <input type="hidden" value="{{ form_data[0]['service_id'] }}" name="service_ID">
+                <input
+                    type="text"
+                    placeholder="* Service Name"
+                    value = "{{form_data[0]['name'] }}"
+                    name="service_name"
+                    required />
+                <input
+                    type="number"
+                    placeholder="* Cost Per Hour ($)"
+                    value = "{{ form_data[0]['cost_per_hour'] }}"
+                    min="0"
+                    name="cost"
+                    required />
+                <br/>
+                <input type="submit" value="Update" name="update_service" class="btn">
+                <a href='/services/'>  
+                    <input type="button" value="Cancel" name="cancel_edit_invoice" class="btn">  
+                </a>
+            </fieldset>
+        </form>
+    </article>
+</main>
+
+{% endblock %}
+
+<!-- END JINJA FORMATTING ADAPTATION CITATION 2 -->
