@@ -1,0 +1,380 @@
+/* ----- Code Citation -----
+3.
+Tab DIV HTML and CSS copied & adapted from Stack Overflow
+Date: 2/15/2024
+Copied and adapted from:
+Source URL:https://stackoverflow.com/questions/6906724/is-it-possible-to-have-tabs-without-javascript
+
+4.
+The @media and @keyframes located at the bottom of this file are copied & adapted from CS290 Web
+Development class.
+Date: 3/10/2024
+Source URL: https://canvas.oregonstate.edu/courses/1933705/pages/exploration-css-file-structure?module_item_id=23487345
+
+5.
+Font-family for Bodoni and Nunito fonts are taken from Google Fonts.
+Date: 3/10/2024
+Source URL: https://fonts.google.com/specimen/Bodoni+Moda?query=bodoni+moda
+Source URL: https://fonts.google.com/specimen/Nunito?query=nunito
+
+6.
+Within the section Variables, the colors are adapted from Adobe Color.
+Date: 3/10/2024
+Source URL: https://color.adobe.com/create/color-wheel
+
+9.
+ERD and Schema styling adapted from CS340 Web Development Class.
+Date: 3/11/2024
+Source URL: https://replit.com/@PamVanLonden/Gallery-using-flex?v=1#main.css
+
+10.
+Button for all entity functions called button 81 from CSS Scan.
+Date: 3/11/2024
+Source URL: https://getcssscan.com/css-buttons-examples
+
+*/
+
+
+/* BEGIN CITATION 5 */
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+/* END CITATION 5 */
+
+/* BEGIN CITATION 6 */
+/* ------ Variables ------ */
+:root {
+--sandstorm: #E6E6DE;
+--leaf: #808037;
+--armygreen: #4C4C12;
+--darkdarkgreen: #333302;
+--duckgreen: #B3B370;
+}
+/* END CITATION 6 */
+
+header{
+  background-color: var(--sandstorm);
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+main {
+  padding: 2% 7%;
+}
+
+header img{
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0 8px 0 8px;
+}
+
+h1 {
+  text-align: auto;
+  color: var(--armygreen);
+  font-family:"Bodoni Moda", Georgia;
+  font-size: 2.8rem;
+}
+
+h2 {
+  text-align: center;
+  padding-top: 10px;
+  text-decoration: underline;
+  font-size: 1.8em;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  color: var(--darkdarkgreen);
+}
+
+h3 {
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 3px;
+  font-size: 1.4em;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  color: var(--darkdarkgreen);
+}
+
+.index_title {
+  text-align: center;
+  padding-top: 10px;
+  text-decoration: underline;
+}
+
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+}
+
+th {
+  background-color: lightgray;
+}
+
+fieldset {
+  border: 3px solid var(--armygreen);
+}
+
+legend {
+  font-size: 125%;
+  margin-top: 1%;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+}
+
+label {
+  display: inline-block;
+  padding: 1%;
+  margin-right: 0;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  padding: 1%;
+}
+
+input {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 2px;
+  margin-bottom: 10px;
+  padding: 0.5%
+}
+
+/* BEGIN CITATION 10 */
+.btn {
+  font-size: 90%;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: var(--armygreen);
+  border: 0 solid #e2e8f0;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none #0d172a solid;
+  text-decoration-thickness: auto;
+  transition: all .1s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:hover {
+  background-color: var(--sandstorm);
+  color: var(--darkdarkgreen);
+}
+
+
+@media (min-width: 768px) {
+  .btn {
+    font-size: 1.0rem;
+    padding: 1rem 1rem;
+    margin: 0.7rem auto auto auto;
+  }
+}
+/* END CITATION 10 */
+
+
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding: 2% 0 0 0;
+}
+
+nav a:link {
+  color: white;
+  border-radius: 4px;
+  background-color: var(--darkdarkgreen);
+}
+
+nav a:hover {
+  opacity: 0.2;
+}
+
+nav a:visited {
+  color: white;
+}
+
+nav a {
+  padding: 10px 14px 14px 14px;
+  margin: 2px 5px 5px 5px;
+  text-decoration:none;
+  font-family: "Nunito", sans-serif;
+}
+
+a {
+  font-size: 0.8rem;
+}
+
+/* BEGIN CITATION 3 */
+.tabs {
+  position: relative;   
+  min-height: 300px; /* This part sucks */
+  clear: both;
+  margin: 10px 0;
+}
+
+.invoicetabs {
+  position: relative;   
+  min-height: 420px; /* This part sucks */
+  clear: both;
+  margin: 25px 0;
+}
+
+.tab {
+  float: left;
+}
+
+.tab #tab_name {
+  background: #eee; 
+  padding: 10px;
+  border: 1px solid #ccc; 
+  margin-left: -1px; 
+  position: relative;
+  left: 1px; 
+  font-family: 'Nunito', sans-serif;
+}
+
+.tab [type=radio] {
+  display: none;   
+}
+
+.content {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  background: white;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  margin: auto;
+  border: 1px solid #ccc; 
+}
+
+[type=radio]:checked ~ label {
+  background: white;
+  border-bottom: 1px solid white;
+  z-index: 2;
+
+}
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
+}
+/* END CITATION 3 */
+
+.entry label {
+  background:none;
+  border: none;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 auto 50px auto;
+  padding: 0px 0px 20px 0px;
+}
+
+/* -------Index Page -------- */
+.overview-table {
+  border-collapse: collapse;
+  max-width: 80%;
+  margin: 20px auto;
+  padding: auto;
+}
+
+.reload-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BEGIN CITATION 9 */
+.gallery {
+  display: block;
+}
+
+.gallery img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: auto;
+
+}
+
+figcaption {
+  text-align: center;
+  padding: 10px;
+  font-style: italic;
+}
+/* END CITATION 9 */
+
+
+.description {
+  margin: 0.5% 10%;
+  padding: 10px;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+}
+
+.list {
+  margin: 0.5% 10%;
+  padding: 10px;
+  font-family: 'Nunito', sans-serif;
+}
+
+
+.edit_pages {
+  margin: 3% 10% 3% 10%;
+}
+
+footer {
+  background-color: var(--sandstorm);
+  color: var(--armygreen);
+  text-align: center;
+  padding: 2px 0px 0px 0px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  font-family: "Bodoni Moda", Georgia;
+}
+
+/* BEGIN CITATION 4 */
+@keyframes App-logo {}
+  
+/*   ===== TABLET  media query overrides mobile styles ===== */
+@media all and (min-width: 600px) {}
+
+/*   ===== DESKTOP  media query overrides mobile and tablet styles ===== */
+@media all and (min-width: 1080px) {}
+
+/*   ===== PRINT  media query overrides previous styles =====  */
+@media print {}
+/* END CITATION 4 */
